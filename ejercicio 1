@@ -1,0 +1,18 @@
+temperaturas = []
+for i in range(5):
+    ingresar_temp = int(input(f"Ingresa la temperatura {i+1}: "))
+    temperaturas.append(ingresar_temp)
+
+promedio = sum(temperaturas) / len(temperaturas)
+t_max = max(temperaturas)
+
+todas_en_rango = all(15 <= temp <= 30 for temp in temperaturas)
+
+if todas_en_rango:
+    print("Todas las temperaturas están en rango (15-30) --")
+else:
+    print("advertencia Hay temperaturas fuera del rango (15-30) --")
+
+print(f"--Temperaturas ingresadas--: {temperaturas}")
+print(f"--Temperatura promedio--: {promedio:.2f}")
+print(f"--Temperatura máxima--: {t_max}")

@@ -1,0 +1,28 @@
+import numpy as np
+
+notas = np.array([[7.0, 2.2, 2.6],
+                  [6.0, 4.6, 5.8],
+                  [6.7, 2.6, 2.5]])
+
+print(notas)
+
+promedio_estudiantes = np.mean(notas, axis=1)
+for i, promedio in enumerate(promedio_estudiantes):
+    print(f"{promedio:.2f}")
+
+promedio_asignaturas = np.mean(notas, axis=0)
+for i, promedio in enumerate(promedio_asignaturas):
+    print(f"{promedio:.2f}")
+
+todos_aprobaron = np.all(promedio_estudiantes >= 4.0)
+if todos_aprobaron:
+    print("Todos aprobaron")
+else:
+    print("No todos aprobaron")
+    for i, promedio in enumerate(promedio_estudiantes):
+        if promedio < 4.0:
+            print(f"{promedio:.2f}")
+
+for i, promedio in enumerate(promedio_estudiantes):
+    if promedio < 3.5:
+        print(f"ALERTA: {promedio:.2f}")
